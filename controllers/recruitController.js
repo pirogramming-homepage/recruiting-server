@@ -40,7 +40,7 @@ module.exports = {
                 from: process.env.PIRO_MAIL,
                 to: emailAddress,
                 subject: `[피로그래밍 ${process.env.PIRO_LEVEL}기] 지원서 사본`,
-                html: `<html><body><img src="${mail_info.page1}" width="80%" height="80%" style="margin-top: -100px;" /><br /><img src="${mail_info.page2}" width="80%" height="80%" style="margin-top: -100px;" /><br /><img src="${mail_info.page3}" width="80%" height="80%" style="margin-top: -100px;" /></body></html>`,
+                html: `<html><body><img src="${mail_info.page1}" width="80%" height="80%" style="margin-top: -100px;" /><br /><img src="${mail_info.page2}" width="80%" height="80%" style="margin-top: -100px;" /><br /><img src="${mail_info.page3}" width="80%" height="80%" style="margin-top: -100px;" /><br /><img src="${mail_info.page4}" width="80%" height="80%" style="margin-top: -100px;" /></body></html>`,
             };
             const info = await transporter.sendMail(mailOptions);
             console.log(info.messageId);
