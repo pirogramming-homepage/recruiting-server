@@ -15,5 +15,6 @@ const upload = multer({ storage: storage })
 
 router.post('/save_form', RecruitController.saveForm);
 router.post('/save_file', upload.array('coding-test'), RecruitController.saveFile);
+router.post('/send_mail', RecruitController.sendMail);
 
 module.exports = router;
