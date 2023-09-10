@@ -18,6 +18,7 @@ app.use(cors({
     origin: [
 	'http://43.201.16.162:3000',
 	'http://ec2-43-201-16-162.ap-northeast-2.compute.amazonaws.com:3000',
+	'http://hello.pirogramming-recruit.p-e.kr',
 	'http://localhost:3000'
     ],
     credentials: true,
