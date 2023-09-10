@@ -19,11 +19,6 @@ module.exports = {
         const phone = formData.phone;
         const interview = String(formData.interview);
 
-        // 입력 값 길이 제한 확인
-        if(email.length >= 32 || name.length >= 16 || university >= 24 || major >= 48 || minor >= 48 || address >= 300 || phone >= 24 || interview >= 24 || doyouknowpiro >= 48) {
-            return {status: "fail"}
-        }
-
         const q1_introduce = formData.q1_introduce;
         const q2_experience = formData.q2_experience;
         const q3_idea = formData.q3_idea;
@@ -34,6 +29,12 @@ module.exports = {
         const coding_test_fileDest = formData.coding_test_fileDest;
         const doyouknowpiro = formData.doyouknowpiro;
         const piro_level = formData.piro_level;
+
+        // 입력 값 길이 제한 확인
+        if(email.length >= 32 || name.length >= 16 || university >= 24 || major >= 48 || minor >= 48 || address >= 300 || phone >= 24 || interview >= 24 || doyouknowpiro >= 48) {
+            return {status: "fail"}
+        }
+
         
         const rawQuery = `
         INSERT INTO Document(
