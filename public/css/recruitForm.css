@@ -1,0 +1,126 @@
+:root {
+    --green: #6DC300;
+    --stroke_gray: #959595;
+    --bg-gray: #F9F9F9;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 0;
+}
+
+/* piro header */
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    width: 100%;
+}
+.slogan {
+    margin-bottom: 0.1rem;
+    font-weight: 400;
+    font-size: 1rem;
+}
+.logo {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-weight: 800;
+    font-size: 3rem;
+    letter-spacing: 0.5rem;
+}
+@media (max-width: 768px) {
+    .logo {
+        font-size: 2rem;
+        letter-spacing: 0.1rem;
+    }
+}
+.line {
+    border-bottom: 1px solid black;
+    width: 50%;
+    margin: 1rem 0;
+}
+
+/* question div */
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.q-container {
+    width: 50%;
+    padding: 1rem 4rem;
+    margin: 1rem;
+    background: var(--bg-gray);
+    border-radius: 2rem;
+}
+@media (max-width: 768px) {
+    .q-container {
+        width: 70%;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+}
+.q-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+@media (max-width: 768px) {
+    .q-wrapper {
+        flex-direction: column;
+    }
+}
+.q-header {
+    font-weight: 600;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    margin: 0;
+}
+@media (max-width: 768px) {
+    .q-header {
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+}
+.q-required {
+    color: red;
+}
+.q-desc {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+@media (max-width: 768px) {
+    .q-desc {
+        font-size: 0.8rem;
+        line-height: 1rem;
+    }
+}
+.q-children {
+    display: flex;
+    flex-direction: column;
+}
+
+/* input */
+.v-label {
+    display: block;
+    padding-bottom: 1rem;
+    cursor: pointer;
+}
+input[type="text"],
+input[type="email"] {
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    width: 100%;
+    background: none;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+}
