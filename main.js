@@ -27,16 +27,6 @@ app.set("view engine", "ejs");
 app.set('views', './views');
 app.use(express.static(__dirname + '/public'));
 
-app.get('/test', (req, res) => {
-    res.render('recruitForm.ejs', {
-        level: process.env.LEVEL,
-        interview_date: process.env.INTERVIEW_DATE,
-        full_schedule: process.env.FULL_SCHEDULE,
-        workshop_date: process.env.WORKSHOP_DATE,
-        email: 'hello'
-    });
-})
-
 const RecruitRouter = require('./routers/recruitRouter.js');
 
 app.use('/api/recruit', RecruitRouter);
