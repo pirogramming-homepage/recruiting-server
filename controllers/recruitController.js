@@ -2,6 +2,8 @@ const recruitModel = require('../models/recruitModel.js');
 const fs = require('fs');
 const nodemailer = require("nodemailer");
 const inlineBase64 = require('nodemailer-plugin-inline-base64');
+const nodemailerHtml = require('../config/recruitForm.js');
+const inlineCss = require('nodemailer-juice');
 
 module.exports = {
     saveForm: async (req, res) => {
@@ -20,7 +22,7 @@ module.exports = {
     },
     sendMail: async (req, res) => {
         const mail_info = req.body;
-        const emailAddress = mail_info.emailAddress;
+        const emailAddress = mail_info.email;
         try {
             const transporter = nodemailer.createTransport({
                 host: "smtp.gmail.com",
@@ -31,22 +33,24 @@ module.exports = {
                     pass: process.env.NODE_MAILER,
                 },
             });
-            
-            // inline base64 image
-            transporter.use('compile', inlineBase64({cidPrefix: 'somePrefix_'}));
 
-            // 상단 글자 삭제 실패..
+            transporter.use('compile', inlineCss());
+            
+            const copy = await nodemailerHtml.getHtmlForm(mail_info);
+            console.log(copy);
+            
             let mailOptions = {
                 from: process.env.PIRO_MAIL,
                 to: emailAddress,
                 subject: `[피로그래밍 ${process.env.PIRO_LEVEL}기] 지원서 사본`,
-                html: `<html><body><img src="${mail_info.page1}" width="80%" height="80%" style="margin-top: -100px;" /><br /><img src="${mail_info.page2}" width="80%" height="80%" style="margin-top: -100px;" /><br /><img src="${mail_info.page3}" width="80%" height="80%" style="margin-top: -100px;" /><br /><img src="${mail_info.page4}" width="80%" height="80%" style="margin-top: -100px;" /></body></html>`,
+                html: copy
             };
             const info = await transporter.sendMail(mailOptions);
             console.log(info.messageId);
-            res.send({ 'status': true });
-        } catch {
-            res.send({ 'status': false });
+            res.json({ 'status': true });
+        } catch(error) {
+            console.log('recruit controller error!!!!', error);
+            res.json({ 'status': false });
         }
     }
 }
