@@ -5,27 +5,30 @@ const port = 3333;
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const RecruitRouter = require('./routers/recruitRouter.js');
-
-app.use(bodyParser.json({
-    limit: '10mb'
-}));
-app.use(bodyParser.urlencoded({
-    limit: '10mb',
-    extended: false
-}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 app.use(cors({
     origin: [
-	'http://43.201.16.162:3000',
-	'http://ec2-43-201-16-162.ap-northeast-2.compute.amazonaws.com:3000',
+	'http://3.35.229.43:3000',
+	'http://ec2-3-35-229-43.ap-northeast-2.compute.amazonaws.com:3000',
 	'http://hello.pirogramming-recruit.p-e.kr',
-	'http://localhost:3000'
+	'http://localhost:3000',
+	'http://localhost:3001'
     ],
     credentials: true,
     optionsSuccessStatus: 200,
 }));
 
-app.use('/api/recruit', RecruitRouter);
+app.set("view engine", "ejs");
+app.set('views', './views');
+app.use(express.static(__dirname + '/public'));
+
+const recruitRouter = require('./routers/recruitRouter.js');
+const authRouter = require('./routers/authRouter.js');
+// const examineRouter = require('./routers/examineRouter.js');
+app.use('/api/recruit', recruitRouter);
+app.use('/api/auth', authRouter);
+// app.use('/api/examine', examineRouter);
 
 app.listen(port, () => {
     console.log(`I am listening on port ${port}`);
