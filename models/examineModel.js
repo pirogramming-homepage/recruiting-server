@@ -26,7 +26,7 @@ module.exports = {
     FROM Evaluation
     WHERE document_fk=?;`;
     const result = await db.query(query, [documentId]);
-    console.log(result[0]);
+    // console.log(result[0]);
 
     return result[0];
   }

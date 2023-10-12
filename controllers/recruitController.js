@@ -58,7 +58,7 @@ module.exports = {
             transporter.use('compile', inlineCss());
             
             const copy = await nodemailerHtml.getHtmlForm(mail_info);
-            console.log(copy);
+            // console.log(copy);
             
             let mailOptions = {
                 from: process.env.PIRO_MAIL,
@@ -67,7 +67,7 @@ module.exports = {
                 html: copy
             };
             const info = await transporter.sendMail(mailOptions);
-            console.log(info.messageId);
+            // console.log(info.messageId);
             res.json({ 'status': true });
         } catch(error) {
             console.log('recruit controller error!!!!', error);

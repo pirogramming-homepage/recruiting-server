@@ -685,7 +685,6 @@ module.exports = {
         </body>
         </html>
         `
-        console.log('ehkelf');
 
         return html;
     }
