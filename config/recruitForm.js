@@ -19,10 +19,10 @@ module.exports = {
         const level5 = body.level == 5 ? '<div class="radio-selected-btn"></div>' : '';
         const level6 = body.level == 6 ? '<div class="radio-selected-btn"></div>' : '';
         
-        const interview1 = body.interview.indexOf('토요일오전') !== -1 ? '<div class="checkbox-checked-btn"></div>' : '';
-        const interview2 = body.interview.indexOf('토요일오후') !== -1 ? '<div class="checkbox-checked-btn"></div>' : '';
-        const interview3 = body.interview.indexOf('일요일오전') !== -1 ? '<div class="checkbox-checked-btn"></div>' : '';
-        const interview4 = body.interview.indexOf('일요일오후') !== -1 ? '<div class="checkbox-checked-btn"></div>' : '';
+        const interview1 = body.interview.indexOf('토요일 오전') !== -1 ? '<div class="checkbox-checked-btn"></div>' : '';
+        const interview2 = body.interview.indexOf('토요일 오후') !== -1 ? '<div class="checkbox-checked-btn"></div>' : '';
+        const interview3 = body.interview.indexOf('일요일 오전') !== -1 ? '<div class="checkbox-checked-btn"></div>' : '';
+        const interview4 = body.interview.indexOf('일요일 오후') !== -1 ? '<div class="checkbox-checked-btn"></div>' : '';
 
         const file = body.coding_test_fileDest ? `<p class="file-status">${ body.coding_test_fileDest } 파일 저장 완료 ✅</p>` : `<p class="file-status">${ body.coding_test_fileDest } 파일 저장 실패 💔</p>`;
         
@@ -127,11 +127,11 @@ module.exports = {
             
             /* radio */
             .radio-div {
-                display: flex;
                 margin-top: 1rem;
                 margin-right: 1rem;
             }
             .radio-btn {
+                display: inline-block;
                 border-radius: 50%;
                 border: 1px solid black;
                 width: 0.8rem;
