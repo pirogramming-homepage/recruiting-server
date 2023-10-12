@@ -9,11 +9,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cors({
     origin: [
-	'http://3.35.229.43:3000',
-	'http://ec2-3-35-229-43.ap-northeast-2.compute.amazonaws.com:3000',
+	'http://52.79.205.140',
+	'http://ec2-52-79-205-140.ap-northeast-2.compute.amazonaws.com',
 	'http://hello.pirogramming-recruit.p-e.kr',
 	'http://localhost:3000',
-	'http://localhost:3001'
+	'http://127.0.0.1:3000',
     ],
     credentials: true,
     optionsSuccessStatus: 200,
