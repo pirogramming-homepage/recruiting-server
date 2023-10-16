@@ -27,14 +27,13 @@ module.exports = {
         const q6_plan = formData.q6_plan;
 
         const coding_test_fileDest = formData.coding_test_fileDest;
-        const doyouknowpiro = formData.doyouknowpiro;
+        const doyouknowpiro = formData.doyouknowpiro === 'etc' ? formData.doyouknowValue : formData.doyouknowpiro;
         const piro_level = formData.piro_level;
 
         // 입력 값 길이 제한 확인
         if(email.length >= 32 || name.length >= 16 || university >= 24 || major >= 48 || minor >= 48 || address >= 300 || phone >= 24 || interview >= 24 || doyouknowpiro >= 48) {
             return {status: "fail"}
         }
-
         
         const rawQuery = `
         INSERT INTO Document(

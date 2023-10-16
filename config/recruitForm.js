@@ -29,8 +29,8 @@ module.exports = {
         const doyouknowpiro1 = body.doyouknowpiro === 'sns' ? '<div class="radio-selected-btn"></div>' : '';
         const doyouknowpiro2 = body.doyouknowpiro === 'community' ? '<div class="radio-selected-btn"></div>' : '';
         const doyouknowpiro3 = body.doyouknowpiro === 'everytime' ? '<div class="radio-selected-btn"></div>' : '';
-        const doyouknowpiro4 = body.doyouknowpiro === 'doyouknowpiro' ? '<div class="radio-selected-btn"></div>' : '';
-        const doyouknowpiro5 = body.doyouknowpiro === 'doyouknowpiro' ? body.doyouknowpiro : ''
+        const doyouknowpiro4 = body.doyouknowpiro === 'etc' ? '<div class="radio-selected-btn"></div>' : '';
+        const doyouknowpiro5 = body.doyouknowpiro === 'etc' ? body.doyouknowValue : '';
 
         console.log(body);
         
