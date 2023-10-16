@@ -9,9 +9,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cors({
     origin: [
+	'https://52.79.205.140',
+	'https://ec2-52-79-205-140.ap-northeast-2.compute.amazonaws.com',
+	'https://52.79.205.140:3000',
+	'https://ec2-52-79-205-140.ap-northeast-2.compute.amazonaws.com:3000',
+	'https://piro-recruiting.top',
+	'https://localhost:3000',
+	'https://127.0.0.1:3000',
+
 	'http://52.79.205.140',
 	'http://ec2-52-79-205-140.ap-northeast-2.compute.amazonaws.com',
-	'http://hello.pirogramming-recruit.p-e.kr',
+	'http://52.79.205.140:3000',
+	'http://ec2-52-79-205-140.ap-northeast-2.compute.amazonaws.com:3000',
+	'http://piro-recruiting.top',
 	'http://localhost:3000',
 	'http://127.0.0.1:3000',
     ],
