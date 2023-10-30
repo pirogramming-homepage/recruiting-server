@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
         cb(null, 'uploads/');
     },
     filename: function (req, file, cb) {
-        cb(null, `${file.fieldname}_${Date.now()}.py`);
+        cb(null, `${file.originalname.split('.')[0]}.py`);
     },
     limits: { fileSize: 1024 * 1024 }
 });
@@ -33,6 +33,7 @@ module.exports = {
             }
             // 파일명에 지원자 이름 명시
             try {
+                // console.log(req.files[0]);
                 fs.renameSync(req.files[0].path, `uploads/[${req.body.name}]_${req.files[0].filename}`);
                 console.log('[파일 저장 성공]', `uploads/[${req.body.name}]_${req.files[0].filename}`);
                 return res.send({ 'status': true });
