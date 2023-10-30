@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
         cb(null, 'uploads/');
     },
     filename: function (req, file, cb) {
-        cb(null, `${file.originalname.split('.')[0]}_${Date.now()}.py`);
+        cb(null, `${file.originalname.split('.')[0]}.py`);
     },
     limits: { fileSize: 1024 * 1024 }
 });
