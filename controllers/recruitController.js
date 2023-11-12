@@ -50,6 +50,7 @@ module.exports = {
                 host: "smtp.gmail.com",
                 port: 465,
                 secure: true,
+                pool: true,
                 auth: {
                     user: process.env.PIRO_MAIL,
                     pass: process.env.NODE_MAILER,
@@ -69,6 +70,7 @@ module.exports = {
             };
             const info = await transporter.sendMail(mailOptions);
             // console.log(info.messageId);
+            transporter.close();
             res.json({ 'status': true });
         } catch(error) {
             console.log('recruit controller error!!!!', error);
