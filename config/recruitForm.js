@@ -25,6 +25,7 @@ module.exports = {
         const interview4 = body.interview.indexOf('일요일 오후') !== -1 ? '<div class="checkbox-checked-btn"></div>' : '';
 
         const file = body.coding_test_fileDest ? `<p class="file-status">${ body.coding_test_fileDest } 파일 저장 완료 ✅</p>` : `<p class="file-status">${ body.coding_test_fileDest } 파일 저장 실패 💔</p>`;
+        const fileContent = body.coding_test_content;
         
         const doyouknowpiro1 = body.doyouknowpiro === 'sns' ? '<div class="radio-selected-btn"></div>' : '';
         const doyouknowpiro2 = body.doyouknowpiro === 'community' ? '<div class="radio-selected-btn"></div>' : '';
@@ -625,6 +626,9 @@ module.exports = {
                     </h3>
                     <div class="q-children">
                         ${file}
+                        <div class="q-desc">
+                            ${fileContent}
+                        </div>
                     </div>
                 </div>
                 <div class="q-container">
