@@ -2,7 +2,7 @@ const db = require('../config/db.js');
 
 module.exports = {
     createRecruitForm: async(formData) => {
-        console.log(formData)
+        // console.log(formData)
         const attend = formData.attend == 'true' ? true : false;
         const workshop = formData.workshop == 'true' ? true : false;
         const reason = formData.reason;
