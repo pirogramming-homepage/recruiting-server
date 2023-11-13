@@ -523,11 +523,11 @@ module.exports = {
                 </div>
                 <div class="q-container">
                     <div class="q-wrapper">
-                        <h1 class="q-header">자기소개 및 지원동기와 목표 (공백 제외 700자 이하)</h1>
+                        <h1 class="q-header">본인의 가치관, 성격 등을 포함한 자기소개 (공백포함 500자 이내)</h1>
                         <span class="q-required">*필수응답</span>
                     </div>
                     <h3 class="q-desc">
-                        당신은 어떤 사람인가요? 장단점은 무엇인가요? 피로그래밍에 지원하게 된 동기와 피로그래밍을 통해 얻고 싶은 것에 대해 함께 설명해주세요.
+                        자신의 장단점은 무엇인가요? 해당 장단점으로 피로그래밍 활동 속에서 기여 할 수 있는 점은 무엇인가요?
                     </h3>
                     <div class="q-children">
                         <div class="input-textarea">
@@ -537,11 +537,11 @@ module.exports = {
                 </div>
                 <div class="q-container">
                     <div class="q-wrapper">
-                        <h1 class="q-header">프로그래밍 경험 및 수준, 학습계획 (공백 제외 500자 이하)</h1>
+                        <h1 class="q-header">지원동기와 목표(공백포함 500자 이내)</h1>
                         <span class="q-required">*필수응답</span>
                     </div>
                     <h3 class="q-desc">
-                        이전에 프로그래밍을 접하거나 배워본 경험이 있으신가요? 있다면, 어떠한 언어를 어느 정도 공부하셨나요? 없다면, 프로그래밍을 어떻게 알게 되었고, 어떤 분야에 관심이 있으신가요? 프로그래밍과 관련하여 앞으로의 공부 계획이 있으시다면 설명해주세요.
+                        피로그래밍에 지원하게 된 동기와 왜 웹개발을 선택했는지, 피로그래밍 활동을 통해 얻고자 하는 것에 대해 함께 작성해 주시면 더 좋습니다.
                     </h3>
                     <div class="q-children">
                         <div class="input-textarea">
@@ -551,11 +551,11 @@ module.exports = {
                 </div>
                 <div class="q-container">
                     <div class="q-wrapper">
-                        <h1 class="q-header">만들고 싶은 웹 서비스 (공백 제외 400자 이하)</h1>
+                        <h1 class="q-header">평소에 관심을 가졌던 웹 서비스가 있나요? 혹은 만들고 싶은 웹 서비스에 대해서 작성해주세요. (공백포함 350자 이내)</h1>
                         <span class="q-required">*필수응답</span>
                     </div>
                     <h3 class="q-desc">
-                        피로그래밍 세션 후반부에는 팀을 짜서 직접 웹 사이트를 만들어 봅니다. 피로그래밍에서 만들어 보고 싶은 웹 서비스가 있으신가요? 있다면, 만들고자 하는 웹 서비스에 대해 자유롭게 설명해주세요.
+                        <!--내용 적기-->
                     </h3>
                     <div class="q-children">
                         <div class="input-textarea">
@@ -565,11 +565,11 @@ module.exports = {
                 </div>
                 <div class="q-container">
                     <div class="q-wrapper">
-                        <h1 class="q-header">협업 또는 팀플 경험 (공백 제외 500자 이하)</h1>
+                        <h1 class="q-header">협업을 진행하며 함께 성장한 경험에 대해 이야기해주세요. 자신이 팀 내에서 맡았던 역할과 협업 과정을 통해 배우고 느낀 점에 대해 구체적으로 설명해주세요. 웹 개발 경험이 아니어도 좋습니다. (공백포함 500자 이내)</h1>
                         <span class="q-required">*필수응답</span>
                     </div>
                     <h3 class="q-desc">
-                        팀원들과 협업을 해본 경험이 있으신가요? 있다면 팀에 어떻게 기여했나요? 또한 협업 과정에서 당신의 소통방식에 대해 설명해주세요. (프로그래밍과 관련 없는 협업 또는 팀플 경험이어도 괜찮습니다.)
+                        협업과정에서 자신의 강점/약점은 무엇이라고 느꼈는지 적어주시면 더 좋습니다.
                     </h3>
                     <div class="q-children">
                         <div class="input-textarea">
@@ -579,11 +579,11 @@ module.exports = {
                 </div>
                 <div class="q-container">
                     <div class="q-wrapper">
-                        <h1 class="q-header">무언가를 끝까지, 꾸준히 해낸 경험 (공백 제외 500자 이하)</h1>
+                        <h1 class="q-header">목표를 정하고 노력한 경험 (공백포함 500자 이내)</h1>
                         <span class="q-required">*필수응답</span>
                     </div>
                     <h3 class="q-desc">
-                        계획했던 일을 끝까지 해내거나 혹은 꾸준히 해본 경험이 있으신가요? 있다면 그 과정에서 어려운 점은 무엇이었고, 어떻게 극복하셨나요? 혹은 결과는 어땠고, 경험을 통해 무엇을 얻었는지 자유롭게 설명해주세요.
+                        도전 계기와 도전 과정의 어려움 및 극복/노력 과정을 구체적으로 설명해주세요
                     </h3>
                     <div class="q-children">
                         <div class="input-textarea">
@@ -593,7 +593,7 @@ module.exports = {
                 </div>
                 <div class="q-container">
                     <div class="q-wrapper">
-                        <h1 class="q-header">방학계획 (자유형식)</h1>
+                        <h1 class="q-header">방학 계획 및 학습계획 (자유형식)</h1>
                         <span class="q-required">*필수응답</span>
                     </div>
                     <h3 class="q-desc">
@@ -615,9 +615,6 @@ module.exports = {
                         
                         코딩테스트의 점수가 합불 여부의 큰 결정요인이 되지 않습니다
                         그러니 파이썬, 코딩테스트가 처음이더라도 끝까지 포기하지 말고 지원자분의 열정을 보여주세요!
-
-                        코딩테스트 문제와 조건, 힌트는 아래 url 에서 확인 가능합니다
-                        ⚠️코딩 테스트는 면접 평가의 참고 자료로 사용됩니다
 
                         ⭐프로그래밍 언어는 python으로 제한합니다⭐
                         문제에 대한 답변 코드를 아래에 제출해주세요
