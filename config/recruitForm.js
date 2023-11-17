@@ -36,7 +36,7 @@ module.exports = {
         const doyouknowpiro4 = body.doyouknowpiro === 'etc' ? '<div class="radio-selected-btn"></div>' : '';
         const doyouknowpiro5 = body.doyouknowpiro === 'etc' ? body.doyouknowValue : '';
 
-        console.log(body);
+        // console.log(body);
         
         const html = `
         <html>

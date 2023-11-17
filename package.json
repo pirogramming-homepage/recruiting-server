@@ -22,6 +22,7 @@
     "nodemailer": "^6.9.5",
     "nodemailer-juice": "^1.0.1",
     "nodemailer-plugin-inline-base64": "^2.1.1",
+    "nodemailer-smtp-pool": "^2.8.3",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
   },
