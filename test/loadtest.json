@@ -1,12 +1,15 @@
 {
   "config": {
-    "target": "https://piro-recruiting.top",
+    "target": "http://localhost:3333",
     "phases": [
       {
-        "duration": 60,
-        "arrivalRate": 200
+        "duration": 1,
+        "arrivalRate": 100
       }
     ],
+    "http": {
+      "timeout": 1000
+    },
     "defaults": {
       "headers": {
         "User-Agent": "Artillery"

@@ -54,7 +54,7 @@ module.exports = {
                     coding_test_fileDest, doyouknowpiro, piro_level
                 ]);
             return {status: "success"};
-        } catch {
+        } catch(error) {
             return {status: "fail"}
         }
     }

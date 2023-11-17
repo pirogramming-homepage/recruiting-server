@@ -2,6 +2,9 @@ require("dotenv").config();
 
 module.exports = {
     getHtmlForm: async (body) => {
+        const workshop_ok = body.workshop_ok == 'true' ? '<div class="radio-selected-btn"></div>' : '';
+        const workshop_sorry = body.workshop_ok == 'false' ? '<div class="radio-selected-btn"></div>' : '';
+
         const maleHtml = body.gender === 'M' ? '<div class="radio-selected-btn"></div>' : '';
         const femaleHtml = body.gender === 'W' ? '<div class="radio-selected-btn"></div>' : '';
         
@@ -33,7 +36,7 @@ module.exports = {
         const doyouknowpiro4 = body.doyouknowpiro === 'etc' ? '<div class="radio-selected-btn"></div>' : '';
         const doyouknowpiro5 = body.doyouknowpiro === 'etc' ? body.doyouknowValue : '';
 
-        console.log(body);
+        // console.log(body);
         
         const html = `
         <html>
@@ -194,8 +197,7 @@ module.exports = {
                         <span class="q-required">*필수응답</span>
                     </div>
                     <h3 class="q-desc">
-                        면접(${process.env.INTERVIEW_DATE}), 정규 활동 (${process.env.FULL_SCHEDULE}) 매주 화, 목, 토 (10:00 ~ 17:00 공휴일은 제외) *일부 세션 및 행사는 대면으로
-                                진행되기 때문에 일정 참여 불가 시 선발이 어려울 수 있습니다.
+                        면접(${process.env.INTERVIEW_DATE}), 정규 활동 (${process.env.FULL_SCHEDULE}) 매주 화, 목, 토 (10:00 ~ 17:00 공휴일은 제외) *일부 세션 및 행사는 대면으로 진행되기 때문에 일정 참여 불가 시 선발이 어려울 수 있습니다.
                     </h3>
                     <div class="q-children">
                         <div class="radio-div">
@@ -222,14 +224,18 @@ module.exports = {
                     <div class="q-children">
                         <div class="radio-div">
                             <div class="radio-btn">
-                                <div class="radio-selected-btn"></div>
+                                ${workshop_ok}
                             </div>
                             <label for="v-label">예</label>
                         </div>
                         <div class="radio-div">
                             <div class="radio-btn">
+                                ${workshop_sorry}
                             </div>
                             <label for="v-label">아니오</label>
+                        </div>
+                        <div class="input">
+                            ${body.reason}
                         </div>
                     </div>
                 </div>
