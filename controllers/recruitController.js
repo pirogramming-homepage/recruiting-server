@@ -19,6 +19,47 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage }).array('coding-test');
 
 module.exports = {
+    getCSRF: async (req, res) => {
+        if (dateCheck.dateCheck()) {
+            try {
+                const csrf = await fetch('https://pirogramming.com/recruit/api/csrf/');
+                if (csrf.ok) {
+                    const response = await csrf.json();
+                    const csrftoken = response.csrfToken;
+                    return res.json({ csrftoken });
+                }
+            } catch (error) {
+                console.log('csrf token error!!!', error);
+                return res.json({ csrftoken: '' });
+            }
+        }
+    },
+    saveHome: async (req, res) => {
+        if (dateCheck.dateCheck()) {
+            const {name, phone, csrftoken} = req.body;
+            console.log(csrftoken);
+            try {
+                const result = await fetch('https://pirogramming.com/recruit/api/add_applicant/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrftoken,
+                    },
+                    mode: 'cors',
+                    credentials: 'include',
+                    body: JSON.stringify({ name, phone })
+                });
+                if (result.ok) {
+                    const response = await result.json();
+                    console.log(response)
+                    return res.send({ status: response.status });
+                }
+            } catch (error) {
+                console.log('home saved error!!!', error);
+                return res.send({ status: false });
+            }
+        }
+    },
     saveForm: async (req, res) => {
         if (dateCheck.dateCheck()) {
             const formData = req.body;
@@ -26,9 +67,9 @@ module.exports = {
                 const result = await recruitModel.createRecruitForm(formData);
                 console.log('form saved!!!', result);
                 return res.send(result);
-            } catch(error) {
+            } catch (error) {
                 console.log('save form error!!!!', error);
-                return res.send({status: "fail"});
+                return res.send({ status: "fail" });
             }
         }
     },
