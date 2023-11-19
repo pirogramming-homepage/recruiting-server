@@ -17,11 +17,11 @@ const accessToken = oauth2Client.getAccessToken();
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     host: "smtp.google.com",
-    port: 587,
+    port: 465,
     secure: true,
     logger: true,
     pool: true,
-    maxConnections: 1,
+    maxConnections: 5,
     maxMessages: 5,
     auth: {
         type: "OAuth2",
@@ -31,26 +31,7 @@ const transporter = nodemailer.createTransport({
         refreshToken: process.env.OAUTH_REFRESH_TOKEN,
         accessToken: accessToken
     },
-    tls: {
-        // do not fail on invalid certs
-        rejectUnauthorized: false,
-    },
 });
 transporter.use('compile', inlineCss());
-
-let mailOptions = {
-    from: '',
-    to: '',
-    subject: '',
-    html: ''
-};
-
-transporter.on('idle', async () => {
-    // send next messages from the pending queue
-    while(transporter.isIdle() && mailOptions.html.length){
-        await transporter.sendMail(mailOptions);
-        mailOptions.html = '';
-    }
-});
 
 module.exports = transporter;

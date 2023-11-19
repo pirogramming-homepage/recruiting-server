@@ -29,6 +29,7 @@ module.exports = {
         const q6_plan = formData.q6_plan;
 
         const coding_test_fileDest = formData.coding_test_fileDest;
+        const coding_test_content = formData.coding_test_content;
         const doyouknowpiro = formData.doyouknowpiro === 'etc' ? formData.doyouknowValue : formData.doyouknowpiro;
         const piro_level = formData.piro_level;
 
@@ -39,9 +40,9 @@ module.exports = {
         
         const rawQuery = `
         INSERT INTO Document(
-            attend_ok, workshop_ok, reason, pi_ok, deposit_ok, email, name, gender, university, major, minor, minor_course, level, address, phone, interview, q1_introduce, q2_experience, q3_idea, q4_performance, q5_patience, q6_plan, coding_test, doyouknowpiro, piro_level)
+            attend_ok, workshop_ok, reason, pi_ok, deposit_ok, email, name, gender, university, major, minor, minor_course, level, address, phone, interview, q1_introduce, q2_experience, q3_idea, q4_performance, q5_patience, q6_plan, coding_test, coding_test_content, doyouknowpiro, piro_level)
         VALUE(
-            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
         `;
         
         try {
@@ -51,7 +52,7 @@ module.exports = {
                     attend, workshop, reason, personal_info, deposit,
                     email, name, gender, university, major, minor, course, level, address, phone, interview,
                     q1_introduce, q2_experience, q3_idea, q4_performance, q5_patience, q6_plan,
-                    coding_test_fileDest, doyouknowpiro, piro_level
+                    coding_test_fileDest, coding_test_content, doyouknowpiro, piro_level
                 ]);
             return {status: "success"};
         } catch(error) {
