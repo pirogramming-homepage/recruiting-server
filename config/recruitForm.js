@@ -589,7 +589,7 @@ module.exports = {
                         <span class="q-required">*필수응답</span>
                     </div>
                     <h3 class="q-desc">
-                        도전 계기와 도전 과정의 어려움 및 극복/노력 과정을 구체적으로 설명해주세요
+                        계획했던 일을 끝까지 해내서 성공한 경험이 있으신가요? 혹은 열심히 노력했음에도 실패한 경험이 있으신가요? 그 과정에서 어려운 점은 무엇이었고 어떻게 극복하셨는지, 또 결과는 어땠으며, 해당 경험을 통해 무엇을 깨달았는지 자유롭게 설명해주세요.
                     </h3>
                     <div class="q-children">
                         <div class="input-textarea">
