@@ -18,9 +18,22 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage }).array('coding-test');
 
+let mailOptions = [];
+
+transporter.on('idle', () => {
+    console.log('here!!!');
+    // send next messages from the pending queue
+    while(transporter.isIdle() && mailOptions.length){
+        console.log('here!!!~~~');
+        transporter.sendMail(mailOptions.shift());
+        console.log(mailOptions.length);
+    }
+});
+
 module.exports = {
     saveForm: async (req, res) => {
-        if (dateCheck.dateCheck()) {
+        const check = await dateCheck.dateCheck();
+        if (check) {
             const formData = req.body;
             try {
                 const result = await recruitModel.createRecruitForm(formData);
@@ -33,7 +46,8 @@ module.exports = {
         }
     },
     saveFile: async (req, res) => {
-        if (dateCheck.dateCheck()) {
+        const check = await dateCheck.dateCheck();
+        if (check) {
             upload(req, res, err => {
                 if (err instanceof multer.MulterError) {
                     // A Multer error occurred when uploading.
@@ -53,7 +67,8 @@ module.exports = {
         }
     },
     sendMail: async (req, res) => {
-        if (dateCheck.dateCheck()) {
+        const check = await dateCheck.dateCheck();
+        if (check) {
             const mail_info = req.body;
             const emailAddress = mail_info.email;
             try {
@@ -61,16 +76,21 @@ module.exports = {
                 const copy = await nodemailerHtml.getHtmlForm(mail_info);
                 // console.log(copy);
 
-                mailOptions = {
+                const mailOption = {
                     from: process.env.PIRO_MAIL,
                     to: emailAddress,
                     subject: `[피로그래밍 ${process.env.PIRO_LEVEL}기] 지원서 사본`,
                     html: copy
                 };
 
-                const info = await transporter.sendMail(mailOptions);
-                // console.log(info.messageId);
-                return res.json({ status: true });
+                if(transporter.isIdle()) {
+                    transporter.sendMail(mailOption);
+                    return res.json({ status: true });
+                } else {
+                    mailOptions.push(mailOption);
+                    console.log('mail pushed into queue...', mailOptions.length);
+                    return res.json({ status: false });
+                }
             } catch (error) {
                 console.log('recruit controller error!!!!', error);
                 return res.json({ status: false });
