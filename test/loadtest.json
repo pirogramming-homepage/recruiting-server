@@ -3,8 +3,8 @@
     "target": "https://piro-recruiting.top",
     "phases": [
       {
-        "duration": 1,
-        "arrivalRate": 100
+        "duration": 5,
+        "arrivalRate": 10
       }
     ],
     "http": {
