@@ -22,6 +22,7 @@ const transporter = nodemailer.createTransport({
     logger: true,
     pool: true,
     maxConnections: 1,
+    maxMessages: 5,
     auth: {
         type: "OAuth2",
         user: process.env.OAUTH_USER,

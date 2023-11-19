@@ -26,9 +26,9 @@ module.exports = {
                 const result = await recruitModel.createRecruitForm(formData);
                 console.log('form saved!!!', result);
                 return res.send(result);
-            } catch(error) {
+            } catch (error) {
                 console.log('save form error!!!!', error);
-                return res.send({status: "fail"});
+                return res.send({ status: "fail" });
             }
         }
     },
