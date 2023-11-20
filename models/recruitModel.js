@@ -34,7 +34,7 @@ module.exports = {
         const piro_level = formData.piro_level;
 
         // 입력 값 길이 제한 확인
-        if(reason.length >= 48 || email.length >= 32 || name.length >= 16 || university.length >= 24 || major.length >= 48 || minor.length >= 48 || address.length >= 300 || phone.length >= 24 || interview.length >= 24 || doyouknowpiro.length >= 48) {
+        if(reason.length > 48 || email.length > 32 || name.length > 16 || university.length > 24 || major.length > 48 || minor.length > 48 || address.length > 300 || phone.length > 24 || interview.length > 96 || doyouknowpiro.length >= 48) {
             return {status: "fail"}
         }
         
