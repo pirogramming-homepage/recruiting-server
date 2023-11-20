@@ -31,6 +31,11 @@ transporter.on('idle', () => {
 });
 
 module.exports = {
+    checkTime: async (req, res) => {
+        console.log('welcome!!');
+        const check = await dateCheck.dateCheckDetail();
+        return res.json({check: check});
+    },
     saveForm: async (req, res) => {
         const check = await dateCheck.dateCheck();
         if (check) {
