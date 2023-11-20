@@ -2,8 +2,9 @@ require("dotenv").config();
 
 module.exports = {
     getHtmlForm: async (body) => {
-        const workshop_ok = body.workshop_ok == 'true' ? '<div class="radio-selected-btn"></div>' : '';
-        const workshop_sorry = body.workshop_ok == 'false' ? '<div class="radio-selected-btn"></div>' : '';
+        const workshop_ok = body.workshop == 'true' ? '<div class="radio-selected-btn"></div>' : '';
+        const workshop_sorry = body.workshop == 'false' ? '<div class="radio-selected-btn"></div>' : '';
+        const reason = body.reason;
 
         const maleHtml = body.gender === 'M' ? '<div class="radio-selected-btn"></div>' : '';
         const femaleHtml = body.gender === 'W' ? '<div class="radio-selected-btn"></div>' : '';
@@ -235,7 +236,7 @@ module.exports = {
                             <label for="v-label">아니오</label>
                         </div>
                         <div class="input">
-                            ${body.reason}
+                            ${reason}
                         </div>
                     </div>
                 </div>
