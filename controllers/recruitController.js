@@ -12,7 +12,25 @@ const storage = multer.diskStorage({
         cb(null, 'uploads/');
     },
     filename: function (req, file, cb) {
-        cb(null, `${file.originalname.split('.')[0]}.py`);
+        const originName = file.originalname; // hello.world.py
+        let newFileName = '';
+        let filename = '';
+        let exp = '';
+        let uploadFileList = '';
+        if (originName.indexOf('.')) {
+            const lastDotIdx = originName.lastIndexOf('.');
+            filename = originName.substring(0, lastDotIdx); // hello.world
+            exp = originName.substring(lastDotIdx); // .py
+        } else {
+            // 확장자가 없을 때
+            filename = originName;
+        }
+        do {
+            const randInt = Math.trunc(Math.random() * 100);
+            newFileName = `${filename}_${randInt}${exp}`;
+            uploadFileList = fs.readdirSync('./uploads');
+        } while (uploadFileList.includes(newFileName));
+        cb(null, newFileName);
     },
     limits: { fileSize: 1024 * 1024 }
 });
@@ -23,7 +41,7 @@ let mailOptions = [];
 transporter.on('idle', () => {
     console.log('here!!!');
     // send next messages from the pending queue
-    while(transporter.isIdle() && mailOptions.length){
+    while (transporter.isIdle() && mailOptions.length) {
         console.log('here!!!~~~');
         transporter.sendMail(mailOptions.shift());
         console.log(mailOptions.length);
@@ -34,7 +52,7 @@ module.exports = {
     checkTime: async (req, res) => {
         console.log('welcome!!');
         const check = await dateCheck.dateCheckDetail();
-        return res.json({check: check});
+        return res.json({ check: check });
     },
     saveForm: async (req, res) => {
         const check = await dateCheck.dateCheck();
@@ -88,7 +106,7 @@ module.exports = {
                     html: copy
                 };
 
-                if(transporter.isIdle()) {
+                if (transporter.isIdle()) {
                     transporter.sendMail(mailOption);
                     return res.json({ status: true });
                 } else {
